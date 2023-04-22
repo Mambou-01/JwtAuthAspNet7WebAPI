@@ -1,5 +1,7 @@
 using JwtAuthAspNet7WebAPI.Core.DbContext;
 using JwtAuthAspNet7WebAPI.Core.Entities;
+using JwtAuthAspNet7WebAPI.Core.Interfaces;
+using JwtAuthAspNet7WebAPI.Core.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -61,6 +63,11 @@ builder.Services
 
         };
     });
+
+
+// Inject app Dependencies (Dependency Injection)
+
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 
 // pipeline
